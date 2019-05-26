@@ -11,17 +11,17 @@
         <h2>Select Difficulty</h2>
       </ion-list-header>
 
-      <ion-item>
+      <ion-item (click)="service.getDifficulty('Easy')">
         <ion-label>Easy</ion-label>
         <ion-radio value="easy"></ion-radio>
       </ion-item>
 
-      <ion-item>
+      <ion-item (click)="service.getDifficulty('Medium')">
         <ion-label>Medium</ion-label>
         <ion-radio value="medium"></ion-radio>
       </ion-item>
 
-      <ion-item>
+      <ion-item (click)="service.getDifficulty('Hard')">
         <ion-label>Hard</ion-label>
         <ion-radio value="hard"></ion-radio>
       </ion-item>
@@ -35,12 +35,12 @@
         <h2>Select Type</h2>
       </ion-list-header>
 
-      <ion-item>
+      <ion-item (click)="service.getAnswearType('Multiple Choice')">
         <ion-label>Multiple Choice</ion-label>
         <ion-radio value="multiple-choice"></ion-radio>
       </ion-item>
 
-      <ion-item>
+      <ion-item (click)="service.getAnswearType('true/false')">
         <ion-label>True / False</ion-label>
         <ion-radio value="true-false"></ion-radio>
       </ion-item>

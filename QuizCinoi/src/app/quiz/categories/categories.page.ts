@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../quiz.service';
 
 @Component({
   selector: 'app-categories',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesPage implements OnInit {
 
-  constructor() { }
+  constructor(public service : QuizService) { }
 
   ngOnInit() {
   }
-
 }

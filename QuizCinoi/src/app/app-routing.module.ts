@@ -13,7 +13,10 @@ const routes: Routes = [
   { path: 'categories', loadChildren: './quiz/categories/categories.module#CategoriesPageModule' },
   { path: 'form', loadChildren: './quiz/form/form.module#FormPageModule' },
   { path: 'questions', loadChildren: './quiz/questions/questions.module#QuestionsPageModule' },
-  { path: 'summary', loadChildren: './quiz/summary/summary.module#SummaryPageModule' },
+  { path: 'summary', loadChildren: './quiz/summary/summary.module#SummaryPageModule' },  { path: 'duel-choice', loadChildren: './duel/duel-choice/duel-choice.module#DuelChoicePageModule' },
+  { path: 'duel-duel-result', loadChildren: './duel/duel-duel-result/duel-duel-result.module#DuelDuelResultPageModule' },
+  { path: 'available-duels', loadChildren: './duel/available-duels/available-duels.module#AvailableDuelsPageModule' },
+
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-home",
@@ -7,12 +8,12 @@ import { AngularFireAuth } from "@angular/fire/auth";
   styleUrls: ["home.page.scss"]
 })
 export class HomePage {
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor(private router: Router, public afAuth: AngularFireAuth) {}
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-      location.reload();
+      this.router.navigate(['/login']);
     });
   }
-  
+
 }

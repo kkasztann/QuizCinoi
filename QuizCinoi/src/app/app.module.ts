@@ -32,10 +32,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       requireDisplayName: true,
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
     },
-  ],
-  tosUrl: "/terms",
-  privacyPolicyUrl: "/privacy",
-  credentialHelper: firebaseui.auth.CredentialHelper.NONE
+  ]
 };
 
 @NgModule({

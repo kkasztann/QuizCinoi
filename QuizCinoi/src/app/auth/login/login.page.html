@@ -5,52 +5,7 @@
         <img src="/assets/img/logo.jpg" alt="Quiz Logo" class="logo__img">
       </ion-col>
     </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-text-right">
-        <ion-button class="btn" color="dark" fill="outline">LOGIN</ion-button>
-      </ion-col>
-      <ion-col class="ion-text-left">
-        <ion-button class="btn" color="dark" fill="outline">SIGNUP</ion-button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <ion-row>
-          <ion-col>
-            <ion-input type="text" class="input" placeholder="username"></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-input type="password" class="input" placeholder="password"></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="ion-text-center">
-            <ion-button class="btn--light" color="dark" fill="outline">SIGN IN</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <div class="line"></div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <h5 class="sign-up">SIGN UP WITH</h5>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-text-center">
-      <ion-col>
-        <ion-icon class="icon" name="logo-facebook"></ion-icon>
-      </ion-col>
-      <ion-col>
-        <ion-icon class="icon" name="logo-github"></ion-icon>
-      </ion-col>
-    </ion-row>
   </ion-grid>
+
+  <firebase-ui (signInSuccessWithAuthResult)="success()" (signInFailure)="error()"></firebase-ui>
 </ion-content>

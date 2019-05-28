@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../quiz.service';
+import { Question } from './question.model';
 
 @Component({
   selector: 'app-questions',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questions.page.scss'],
 })
 export class QuestionsPage implements OnInit {
-
-  constructor() { }
+  questions : Question[];
+  constructor(public service : QuizService) { }
 
   ngOnInit() {
+    this.questions = this.service.questions;
+    console.log('questions from service' + this.questions);
   }
 
+  showData(){
+    console.log(this.service.questions);
+  }
 }

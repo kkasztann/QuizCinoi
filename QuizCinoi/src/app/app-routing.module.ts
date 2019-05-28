@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: 'summary', loadChildren: './quiz/summary/summary.module#SummaryPageModule' },  { path: 'duel-choice', loadChildren: './duel/duel-choice/duel-choice.module#DuelChoicePageModule' },
   { path: 'duel-duel-result', loadChildren: './duel/duel-duel-result/duel-duel-result.module#DuelDuelResultPageModule' },
   { path: 'available-duels', loadChildren: './duel/available-duels/available-duels.module#AvailableDuelsPageModule' },
+  { path: 'terms', loadChildren: './terms/terms.module#TermsPageModule' },
+  { path: 'privacy', loadChildren: './privacy/privacy.module#PrivacyPageModule' },
 
 ];
 

@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
 import { HomePage } from './home.page';
 import { FirebaseUIModule } from 'firebaseui-angular';
+import { UserHeaderComponent } from '../user-header/user-header.component';
 
 @NgModule({
   imports: [
@@ -21,7 +21,7 @@ import { FirebaseUIModule } from 'firebaseui-angular';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, UserHeaderComponent],exports: [UserHeaderComponent]
 })
 export class HomePageModule {
 }

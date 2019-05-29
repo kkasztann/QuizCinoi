@@ -1,0 +1,32 @@
+ion-content {
+    --background: rgb(236, 206, 163);
+  }
+
+ h5 {
+   font-style: italic;
+   font-size: 25px;
+   font-weight: bold;
+}
+
+.card {
+--background: white;
+
+}
+
+.btn {
+    --color: #000;
+    --font-size: 1 rem;
+    --font-style: italic;
+    --background: rgb(255, 255, 255);
+    --border-radius: 15px;
+    --border-color:  rgb(180, 180, 180);
+    width: 80%;
+    height: 45px;
+    margin: 12px;
+ }
+
+ ion-card-content {
+
+  font-style: italic;
+  color: black;
+ }

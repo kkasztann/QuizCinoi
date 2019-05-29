@@ -1,0 +1,9 @@
+<div class="header-wrapper"*ngIf="afAuth.auth.currentUser">
+  <ion-avatar class="header-wrapper__avatar" *ngIf="afAuth.auth.currentUser.photoURL">
+      <img class="header-wrapper__avatar__img" src="{{ afAuth.auth.currentUser.photoURL }}">
+  </ion-avatar>
+  <h2>{{ afAuth.auth.currentUser.displayName }}</h2>
+  <h3>Points: 0</h3>
+
+  <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">Sign Out [temp/developing]</ion-button>
+</div>

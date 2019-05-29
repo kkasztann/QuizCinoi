@@ -21,7 +21,7 @@ import { UserHeaderComponent } from '../user-header/user-header.component';
       }
     ])
   ],
-  declarations: [HomePage, UserHeaderComponent],exports: [UserHeaderComponent]
+  declarations: [HomePage, UserHeaderComponent]
 })
 export class HomePageModule {
 }

@@ -5,5 +5,6 @@ export class Question {
       public question: string;
       public correct_answer: string;
       public incorrect_answers: string[];
+      public isCorrect: boolean;
   }
   

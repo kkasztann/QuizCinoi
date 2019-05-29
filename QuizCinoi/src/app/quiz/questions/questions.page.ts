@@ -8,15 +8,16 @@ import { Question } from './question.model';
   styleUrls: ['./questions.page.scss'],
 })
 export class QuestionsPage implements OnInit {
-  questions : Question[];
-  constructor(public service : QuizService) { }
+  questions: Question[];
+  constructor(public service: QuizService) { }
 
   ngOnInit() {
-    this.questions = this.service.questions;
-    console.log('questions from service' + this.questions);
   }
 
-  showData(){
-    console.log(this.service.questions);
+  getResult(){
+    console.log("all the results")
   }
+  // @Todo: Add to question model isCorrect property, intialize questions and set this property when user select the item or
+  // just count the proper answears
+
 }

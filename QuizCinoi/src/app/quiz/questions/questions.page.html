@@ -5,5 +5,29 @@
 </ion-header>
 
 <ion-content>
+<div *ngFor="let question of service.questions; let i = index" >
+  <ion-list>
+    <ion-radio-group>
+      <ion-list-header>
+        <h2> {{ question.question }}</h2>
+      </ion-list-header>
 
+      <ion-item>
+        <ion-label>{{ question.correct_answer }}</ion-label>
+        <ion-radio value="{{ question.correct_answer }}" (ionSelect)="service.saveUserAnswer(i, true)"></ion-radio>
+      </ion-item>
+
+      <div *ngFor="let answer of question.incorrect_answers">
+      <ion-item >
+        <ion-label>{{ answer }}</ion-label>
+        <ion-radio  value="{{ answer }}" (ionSelect)="service.saveUserAnswer(i, false)"></ion-radio>
+      </ion-item>
+      </div>
+
+    </ion-radio-group>
+  </ion-list>
+
+</div>
+<ion-button [routerLink]="['/categories']" color="primary">back to category</ion-button>
+<ion-button [routerLink]="['/summary']" color="primary" (click) = "service.getResult()">go to results</ion-button>
 </ion-content>

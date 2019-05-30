@@ -5,12 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegisterPage } from './register.page';
+import { DuelChoicePage } from './duel-choice.page';
+import { UserHeaderComponent } from 'src/app/user-header/user-header.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: RegisterPage
+    component: DuelChoicePage
   }
 ];
 
@@ -21,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [RegisterPage]
+  declarations: [DuelChoicePage, UserHeaderComponent]
 })
-export class RegisterPageModule {}
+export class DuelChoicePageModule {}

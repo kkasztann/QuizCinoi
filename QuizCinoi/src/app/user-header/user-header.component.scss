@@ -1,0 +1,19 @@
+.header-wrapper{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    background: url("../../assets/img/background.jpg");
+}
+
+.header-wrapper__avatar, .header-wrapper__avatar__img {
+    width: 100px;
+    height: 100px;
+}
+
+.header-wrapper__avatar__img {
+    border: 2px solid rgb(41, 41, 41);
+}

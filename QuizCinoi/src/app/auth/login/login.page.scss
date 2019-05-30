@@ -1,0 +1,57 @@
+ion-content {
+  --background: url("../../../assets/img/background.jpg");
+}
+
+.logo__img {
+  width: 50vw;
+  display: block;
+  margin: 0 auto;
+  border: 10px solid rgb(135, 135, 135);
+  border-radius: 50%;
+}
+
+.btn {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgba(69, 69, 69, 0.5);
+}
+
+.input {
+  padding: 10px;
+  margin: 12px;
+  background-color: rgba(248, 248, 248, 0.8);
+  border: 2px solid rgb(180, 180, 180);
+  border-radius: 20px;
+  width: 80vw;
+  color: #000;
+  --placeholder-color: #000;
+  --placeholder-font-weight: bold;
+  text-align: center;
+}
+
+.btn--light {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgba(248, 248, 248, 0.8);
+}
+
+.line {
+  width: 90vw;
+  height: 3px;
+  background-color: #000;
+}
+
+.icon {
+  font-size: 64px;
+  background-color: #fff;
+  border-radius: 20%;
+}
+
+.sign-up {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: rgb(180, 180, 180);
+}

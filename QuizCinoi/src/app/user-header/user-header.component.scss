@@ -9,6 +9,10 @@
   background: url("../../assets/img/background.jpg");
 }
 
+.header-wrapper__avatar{
+  margin-bottom: 10px;
+}
+
 .header-wrapper__avatar,
 .header-wrapper__avatar__img {
   width: 100px;
@@ -17,6 +21,7 @@
 
 .header-wrapper__avatar__img {
   border: 2px solid rgb(41, 41, 41);
+  margin-bottom: 5px;
 }
 
 .header-wrapper__info {

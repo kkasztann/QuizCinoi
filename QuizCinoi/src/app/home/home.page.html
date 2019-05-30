@@ -8,17 +8,17 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" class="ion-text-center">
-         <ion-button class="btn" fill="outline">Start a quiz</ion-button>
+        <ion-button class="btn" fill="outline">Start a quiz</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12" class="ion-text-center">
-         <ion-button class="btn" fill="outline">Start a duel</ion-button>
+        <ion-button class="btn" fill="outline">Start a duel</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12" class="ion-text-center">
-         <ion-button class="btn" fill="outline">Available duels</ion-button>
+        <ion-button class="btn" fill="outline">Available duels</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -28,7 +28,7 @@
     </ion-row>
     <ion-row>
       <ion-col size="12" class="ion-text-center">
-         <ion-button class="btn" fill="outline">Sign off</ion-button>
+        <ion-button class="btn" fill="outline" *ngIf="afAuth.auth.currentUser" (click)="signOut()">Sign off</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

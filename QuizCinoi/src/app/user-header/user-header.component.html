@@ -1,9 +1,21 @@
-<div class="header-wrapper"*ngIf="afAuth.auth.currentUser">
-  <ion-avatar class="header-wrapper__avatar" *ngIf="afAuth.auth.currentUser.photoURL">
-      <img class="header-wrapper__avatar__img" src="{{ afAuth.auth.currentUser.photoURL }}">
-  </ion-avatar>
-  <h2>{{ afAuth.auth.currentUser.displayName }}</h2>
-  <h3>Points: 0</h3>
+<div class="header-wrapper" *ngIf="afAuth.auth.currentUser">
+  <ion-avatar class="header-wrapper__avatar" *ngIf="afAuth.auth.currentUser.photoURL; then avatar; else default">
 
-  <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">Sign Out [temp/developing]</ion-button>
+  </ion-avatar>
+  <div class="header-wrapper__info">
+    <h2>{{ afAuth.auth.currentUser.displayName }}</h2>
+    <h3>Points: 0</h3>
+  </div>
 </div>
+
+<ng-template #avatar>
+  <ion-avatar class="header-wrapper__avatar">
+    <img class="header-wrapper__avatar__img" src="{{ afAuth.auth.currentUser.photoURL }}">
+  </ion-avatar>
+</ng-template>
+
+<ng-template #default>
+  <ion-avatar class="header-wrapper__avatar">
+    <img class="header-wrapper__avatar__img" src=" ../../assets/img/user_default.jpg">
+  </ion-avatar>
+</ng-template>

@@ -6,7 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { RankingPage } from './ranking.page';
-import { UserHeaderComponent } from '../user-header/user-header.component';
 
 const routes: Routes = [
   {
@@ -22,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [RankingPage, UserHeaderComponent]
+  declarations: [RankingPage]
 })
 export class RankingPageModule {}

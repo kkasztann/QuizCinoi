@@ -1,27 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>categories</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      categories
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
   <ion-grid>
 
     <ion-row>
       <ion-col>
-        <ion-item (click)="service.getCategory('Computers')">
+        <ion-item [routerLink]="['/form']" (click)="service.getCategory('Computers')">
           <ion-row>
             <ion-col>
               <ion-icon class="icon" name="school"></ion-icon>
             </ion-col>
             <ion-col>
-              <ion-label>Computers</ion-label>
+              <ion-label >Computers</ion-label>
             </ion-col>
           </ion-row>
         </ion-item>
       </ion-col>
       <ion-col>
-        <ion-item (click)="service.getCategory('General')">
+        <ion-item [routerLink]="['/form']" (click)="service.getCategory('General')">
           <ion-row>
             <ion-col>
               <ion-icon class="icon" name="desktop"></ion-icon>
@@ -33,7 +33,7 @@
         </ion-item >
       </ion-col>
       <ion-col>
-        <ion-item (click)="service.getCategory('Nature')">
+        <ion-item [routerLink]="['/form']" (click)="service.getCategory('Nature')">
           <ion-row>
             <ion-col>
               <ion-icon class="icon" name="globe"></ion-icon>
@@ -48,7 +48,7 @@
 
     <ion-row>
       <ion-col>
-        <ion-item (click)="service.getCategory('History')">
+        <ion-item [routerLink]="['/form']" (click)="service.getCategory('History')">
           <ion-row>
             <ion-col>
               <ion-icon class="icon" name="paper"></ion-icon>
@@ -60,7 +60,7 @@
         </ion-item>
       </ion-col>
       <ion-col>
-        <ion-item (click)="service.getCategory('Geography')" >
+        <ion-item [routerLink]="['/form']" (click)="service.getCategory('Geography')" >
           <ion-row>
             <ion-col>
               <ion-icon class="icon" name="flask"></ion-icon>
@@ -72,7 +72,7 @@
         </ion-item>
       </ion-col>
       <ion-col>
-        <ion-item (click)="service.getCategory('Maths')">
+        <ion-item [routerLink]="['/form']" (click)="service.getCategory('Maths')">
           <ion-row>
             <ion-col>
               <ion-icon class="icon" name="calculator"></ion-icon>
@@ -85,5 +85,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-<ion-button [routerLink]="['/form']">Next</ion-button>
 </ion-content>

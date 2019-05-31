@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AvailableDuelsPage } from './available-duels.page';
-import { UserHeaderComponent } from 'src/app/user-header/user-header.component';
+import { DuelPage } from './duel.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AvailableDuelsPage
+    component: DuelPage
   }
 ];
 
@@ -22,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AvailableDuelsPage]
+  declarations: [DuelPage]
 })
-export class AvailableDuelsPageModule {}
+export class DuelPageModule {}

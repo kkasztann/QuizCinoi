@@ -1,6 +1,37 @@
+
+ion-content {
+    --background: rgb(236, 206, 163);
+  }
+
+ion-item{
+    --border-color: black;
+    font-style: italic;
+    --background: rgb(236, 206, 163);
+    } 
+
+ion-list {
+        background: rgb(236, 206, 163);
+    }
+
+.btn {
+        --color: #000;
+        --font-size: 1 rem;
+        --font-style: italic;
+        --background: rgb(255, 255, 255);
+        --border-radius: 15px;
+        --border-color:  rgb(180, 180, 180);
+        width: 80%;
+        height: 45px;
+        margin: 12px;
+     }
+
 .wrong_answer {
-    color : #e50914 ;
+    color : rgb(255, 42, 42);
+    font-weight: 900;
+    text-transform: uppercase;
 }
 .correct_answer {
-    color : #15b106;
+    color : rgb(54, 151, 54);
+    font-weight: 900;
+    text-transform: uppercase;
 }

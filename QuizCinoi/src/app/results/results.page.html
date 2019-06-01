@@ -13,8 +13,12 @@
       </ion-list-header>
 
       <div *ngFor="let answer of question.allAnswers">
-      <ion-item class="correct_answer" data-name = "{{ answer }}">
-        <ion-label>{{ answer }}</ion-label>
+      <ion-item>
+        <ion-label [ngClass]="{
+          'correct_answer':answer === service.questions[i].correct_answer,
+          'wrong_answer': service.questions[i].incorrect_answers.includes(answer) && service.questions[i].selected === answer
+          }" >{{ answer }}
+        </ion-label>
         <ion-radio  value="{{ answer }}" disabled = "true" ></ion-radio>
       </ion-item>
       </div>

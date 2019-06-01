@@ -8,8 +8,15 @@ ion-content {
    font-weight: bold;
 }
 
+
 .card {
---background: white;
+  background: rgb(160, 68, 68);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
 
 }
 
@@ -29,4 +36,20 @@ ion-content {
 
   font-style: italic;
   color: black;
+  font-size: 20px;
  }
+
+ .avatar{
+  margin-bottom: 10px;
+}
+
+.avatar,
+.avatar__img {
+  width: 100px;
+  height: 100px;
+}
+
+.avatar__img {
+  border: 2px solid rgb(41, 41, 41);
+  margin-bottom: 5px;
+}

@@ -44,7 +44,7 @@
   </ion-list>
 <ion-row>
   <ion-col size="12" class="ion-text-center">
-     <ion-button class="btn" fill="outline" [routerLink]="['/questions']">Start a quiz</ion-button>
+     <ion-button class="btn" fill="outline" [routerLink]="['/questions']"  (click)="service.getQuestions()" >Start a quiz</ion-button>
   </ion-col>
 </ion-row>
 

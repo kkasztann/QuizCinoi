@@ -76,7 +76,7 @@ export class QuizService {
   }
 
   saveUserAnswer(numberOfQuestion: number, answer: string) {
-    console.log(this.questions[numberOfQuestion].isCorrect);
+    this.questions[numberOfQuestion].selected = answer;
     if(this.questions[numberOfQuestion].correct_answer === answer) {
       this.questions[numberOfQuestion].isCorrect = true;
     } else {

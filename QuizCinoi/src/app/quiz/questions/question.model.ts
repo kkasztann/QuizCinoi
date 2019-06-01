@@ -7,5 +7,6 @@ export class Question {
       public incorrect_answers: string[];
       public isCorrect: boolean;
       public allAnswers: string[];
+      public selected: string;
   }
   

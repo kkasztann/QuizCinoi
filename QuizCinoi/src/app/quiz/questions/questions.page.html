@@ -12,15 +12,10 @@
         <h2> {{ question.question }}</h2>
       </ion-list-header>
 
-      <ion-item>
-        <ion-label>{{ question.correct_answer }}</ion-label>
-        <ion-radio value="{{ question.correct_answer }}" (ionSelect)="service.saveUserAnswer(i, true)"></ion-radio>
-      </ion-item>
-
-      <div *ngFor="let answer of question.incorrect_answers">
+      <div *ngFor="let answer of question.allAnswers">
       <ion-item >
         <ion-label>{{ answer }}</ion-label>
-        <ion-radio  value="{{ answer }}" (ionSelect)="service.saveUserAnswer(i, false)"></ion-radio>
+        <ion-radio  value="{{ answer }}" (ionSelect)="service.saveUserAnswer(i, answer)"></ion-radio>
       </ion-item>
       </div>
 

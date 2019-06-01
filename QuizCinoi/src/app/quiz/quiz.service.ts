@@ -65,17 +65,24 @@ export class QuizService {
     this._http.get<dataAPI>(this.buildUrl()).subscribe((data) => {
       this.dataVariable = data;
       this.questions = this.dataVariable.results;
+      for(let item of this.questions){
+        item.allAnswers = this.shuffleAnswers([...item.incorrect_answers, item.correct_answer]);
+      }
       console.log(this.questions);
-      console.log(this.category);
     });
+
     console.log(this.questions);
     return this.questions;
   }
 
-  saveUserAnswer(numberOfQuestion: number, isCorrect: boolean) {
+  saveUserAnswer(numberOfQuestion: number, answer: string) {
     console.log(this.questions[numberOfQuestion].isCorrect);
-    console.log(this.questions[numberOfQuestion].question + ' ----- ' + isCorrect);
-    this.questions[numberOfQuestion].isCorrect = isCorrect;
+    if(this.questions[numberOfQuestion].correct_answer === answer) {
+      this.questions[numberOfQuestion].isCorrect = true;
+    } else {
+      this.questions[numberOfQuestion].isCorrect = false;
+    }
+    console.log(this.questions[numberOfQuestion].isCorrect);
   }
 
   getResult() {
@@ -87,6 +94,24 @@ export class QuizService {
         }
     }
     this.amountOfQuestions = this.questions.length;
+  }
+
+  shuffleAnswers(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
   }
 
 }

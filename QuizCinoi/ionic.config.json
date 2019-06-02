@@ -1,5 +1,8 @@
 {
   "name": "QuizCinoi",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }

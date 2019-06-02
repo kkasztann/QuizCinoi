@@ -3,6 +3,8 @@
 
 environment.ts
 environment.prod.ts
+android/
+ios/
 
 *~
 *.sw[mnpcod]

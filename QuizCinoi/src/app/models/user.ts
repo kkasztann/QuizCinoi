@@ -6,8 +6,8 @@ export interface User {
   availablesDuel?: AvailablesDuel;
 }
 export interface Location {
-  latitude: string;
-  longtitude: string;
+  latitude: number;
+  longitude: number;
 }
 export interface ResultDuel {
   opponentNick: string;

@@ -4,6 +4,9 @@ import { Router } from "@angular/router";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { DatabaseService } from "../database.service";
 import { User } from "../models/user";
+import { Plugins, Capacitor } from "@capacitor/core";
+import { Coordinates } from "../models/coordinates";
+import { Geolocation } from "@ionic-native/geolocation/ngx";
 
 @Component({
   selector: "app-home",
@@ -15,15 +18,16 @@ export class HomePage implements OnInit, DoCheck {
     uid: "noUID",
     points: 0,
     location: {
-      latitude: "0'0",
-      longtitude: "0'0"
+      latitude: 0,
+      longitude: 0
     }
   };
 
   constructor(
     private router: Router,
     public afAuth: AngularFireAuth,
-    public database: DatabaseService
+    public database: DatabaseService,
+    private geoloc: Geolocation
   ) {}
 
   ngOnInit() {
@@ -34,12 +38,12 @@ export class HomePage implements OnInit, DoCheck {
         uid: this.afAuth.auth.currentUser.uid,
         points: 0,
         location: {
-          latitude: "1'1",
-          longtitude: "2'2"
+          latitude: 11,
+          longitude: 22
         }
       };
     }
-       this.database.setUser(this.myUser);
+    this.database.setUser(this.myUser);
   }
 
   ngDoCheck() {
@@ -50,5 +54,17 @@ export class HomePage implements OnInit, DoCheck {
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(["/login"]);
     });
+  }
+
+  defineLocation() {
+    this.geoloc
+      .getCurrentPosition()
+      .then(resp => {
+        console.log(resp.coords.latitude);
+        console.log(resp.coords.longitude);
+      })
+      .catch(error => {
+        console.log("Error getting location", error);
+      });
   }
 }

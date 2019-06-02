@@ -12,17 +12,17 @@ Whats more fun than nice evening with your loved ones and some quizzes.*
 
 ## App features
 
-Feature | Screen
+**Feature** | **Screen**
 ------------ | -------------
-Create your account | 
-Select Category | ![alt text](Prototyp/duel1.PNG "duel")
-Select Type and Difficulty | 
-Start a quiz | 
-Check correct answers | 
-Check results of quiz | 
-Check ranking | 
-Check results of duels | 
-Choose your opponent | 
+*Create your account* | 
+*Select Category* | ![alt text](Prototyp/duel1.PNG "duel")
+*Select Type and Difficulty* | 
+*Start a quiz* | 
+*Check correct answers* | 
+*Check results of quiz* | 
+*Check ranking* | 
+*Check results of duels* | 
+*Choose your opponent* | 
 
 ## Creators
 * Daniel Słowik
@@ -30,6 +30,8 @@ Choose your opponent |
 * Mateusz Otręba
 
 ## Links
+1. GitHub: https://github.com/kkasztann/QuizCinoi
+2. Trello: https://trello.com/b/lpOgiYPL/quizcinoi-bai
 
 
 

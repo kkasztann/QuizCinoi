@@ -1,7 +1,7 @@
 
 
 # QuizCinoi
-![alt text](Prototyp/logo_app.PNG "logo")
+![alt text](Prototyp/logo_app.png "logo")
 
 ## About project
 *Our application helps users to extend their knowledge from any field they want. We create a quiz app, which is a fun and intuitive way to test users and theirs friends skills.

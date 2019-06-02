@@ -12,16 +12,12 @@ Whats more fun than nice evening with your loved ones and some quizzes.*
 
 ## App features
 
-**Feature** | **Screen**
------------- | -------------
-*Create your account* | ![alt text](Prototyp/login_app.PNG "login")
-*Select Category* | ![alt text](Prototyp/categories_app.PNG "categories")
-*Select Type and Difficulty* | ![alt text](Prototyp/form_app.PNG "form")
-*Start a quiz* | ![alt text](Prototyp/quiz_app.PNG "quiz")
-*Check correct answers* | ![alt text](Prototyp/result2_app.PNG "correct answers")
-*Check results of quiz* | ![alt text](Prototyp/result_app.PNG "result")
-*Check ranking* | ![alt text](Prototyp/ranking_app.PNG "ranking")
-*Check results of duels* | ![alt text](Prototyp/duel_app.PNG "duel result")
+**Feature** | **Screen** | **Feature** | **Screen** 
+------------ | ------------- | -------------| -------------
+*Create your account* | ![alt text](Prototyp/login_app.PNG "login") | *Select Category* | ![alt text](Prototyp/login_app.PNG "login")
+*Select Type and Difficulty* | ![alt text](Prototyp/categories_app.PNG "categories") | *Start a quiz* | ![alt text](Prototyp/login_app.PNG "login")
+*Check results of quiz* | ![alt text](Prototyp/categories_app.PNG "categories") | *Check Correct answers* | ![alt text](Prototyp/login_app.PNG "login")
+*Check ranking* | ![alt text](Prototyp/categories_app.PNG "categories") | *Check results of duels* | ![alt text](Prototyp/login_app.PNG "login")
 *Choose your opponent* | ![alt text](Prototyp/available_app.PNG "available duel")
 
 ## Creators

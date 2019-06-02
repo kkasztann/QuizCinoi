@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked } from "@angular/core";
+import { Component, OnInit, DoCheck } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import { AngularFirestore } from "@angular/fire/firestore";
@@ -10,7 +10,7 @@ import { User } from "../models/user";
   templateUrl: "home.page.html",
   styleUrls: ["home.page.scss"]
 })
-export class HomePage implements OnInit, AfterViewChecked {
+export class HomePage implements OnInit, DoCheck {
   myUser: User = {
     uid: "noUID",
     points: 0,
@@ -39,10 +39,11 @@ export class HomePage implements OnInit, AfterViewChecked {
         }
       };
     }
+       this.database.setUser(this.myUser);
   }
 
-  ngAfterViewChecked() {
-    this.database.setUser(this.myUser);
+  ngDoCheck() {
+    console.log("Do check");
   }
 
   signOut() {

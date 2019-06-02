@@ -1,5 +1,7 @@
 {
   "name": "QuizCinoi",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

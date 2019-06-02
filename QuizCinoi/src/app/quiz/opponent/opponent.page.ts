@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { AngularFireAuth } from '@angular/fire/auth';
-import { DatabaseService } from 'src/app/database.service';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { DatabaseService } from "src/app/database.service";
+import { User } from "firebase";
 
 @Component({
   selector: "app-opponent",
@@ -12,14 +13,18 @@ export class OpponentPage implements OnInit {
     public afAuth: AngularFireAuth,
     public database: DatabaseService
   ) {}
+  allUsers = [];
 
   ngOnInit() {
-    this.drawOpponent();
+    this.database.getAllUsers(this.allUsers);
   }
 
   drawOpponent() {
-    console.log("Losowanko cyk");
-  }
+    console.log("Losowanie");
 
+    setTimeout(() => {
+      console.log(this.allUsers);
+    }, 3000);
+  }
   compareLocation() {}
 }

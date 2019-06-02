@@ -6,7 +6,9 @@ import { User } from "./models/user";
   providedIn: "root"
 })
 export class DatabaseService {
-  constructor(public db: AngularFirestore) {}
+
+  constructor(public db: AngularFirestore) {
+  }
 
   setUser(user: User) {
     this.db

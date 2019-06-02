@@ -5,7 +5,6 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { DatabaseService } from "../database.service";
 import { User } from "../models/user";
 import { Plugins, Capacitor } from "@capacitor/core";
-import { Coordinates } from "../models/coordinates";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 
 @Component({
@@ -43,7 +42,7 @@ export class HomePage implements OnInit, DoCheck {
         }
       };
     }
-    this.database.setUser(this.myUser);
+    this.defineLocation();
   }
 
   ngDoCheck() {
@@ -61,8 +60,10 @@ export class HomePage implements OnInit, DoCheck {
       .getCurrentPosition()
       .then(resp => {
         console.log(resp.coords.latitude);
+        this.myUser.location.latitude = resp.coords.latitude;
         console.log(resp.coords.longitude);
-      })
+        this.myUser.location.latitude = resp.coords.longitude;
+      }).then (() => {this.database.setUser(this.myUser); })
       .catch(error => {
         console.log("Error getting location", error);
       });

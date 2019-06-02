@@ -8,7 +8,7 @@
 
       <ion-item (click)="service.getDifficulty('easy')">
         <ion-label>Easy</ion-label>
-        <ion-radio value="easy"></ion-radio>
+        <ion-radio value="easy" checked></ion-radio>
       </ion-item>
 
       <ion-item (click)="service.getDifficulty('medium')">
@@ -32,12 +32,12 @@
 
       <ion-item (click)="service.getAnswearType('multiple')">
         <ion-label>Multiple Choice</ion-label>
-        <ion-radio value="multiple-choice"></ion-radio>
+        <ion-radio value="multiple-choice" checked></ion-radio>
       </ion-item>
 
       <ion-item (click)="service.getAnswearType('boolean')">
         <ion-label>True / False</ion-label>
-        <ion-radio value="true-false"></ion-radio>
+        <ion-radio value="true-false" ></ion-radio>
       </ion-item>
 
     </ion-radio-group>
@@ -56,7 +56,7 @@
 
 <ion-row>
   <ion-col size="12" class="ion-text-center">
-     <ion-button class="btn" fill="outline" [routerLink]="['/questions']">back to menu</ion-button>
+     <ion-button class="btn" fill="outline" [routerLink]="['/home']">back to menu</ion-button>
   </ion-col>
 </ion-row>
 </ion-content>

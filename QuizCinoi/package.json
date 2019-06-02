@@ -31,6 +31,8 @@
     "firebaseui": "^4.0.0",
     "firebaseui-angular": "^3.4.2",
     "promise-polyfill": "^8.1.0",
+    "he": "^1.2.0",
+    "jquery": "^3.4.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

@@ -6,6 +6,7 @@ import { DatabaseService } from "../database.service";
 import { User } from "../models/user";
 import { Plugins, Capacitor } from "@capacitor/core";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
+import { QuizService } from '../quiz/quiz.service';
 
 @Component({
   selector: "app-home",
@@ -26,7 +27,8 @@ export class HomePage implements OnInit, DoCheck {
     private router: Router,
     public afAuth: AngularFireAuth,
     public database: DatabaseService,
-    private geoloc: Geolocation
+    private geoloc: Geolocation,
+    public service: QuizService
   ) {}
 
   ngOnInit() {
@@ -46,7 +48,7 @@ export class HomePage implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    console.log("Do check");
+    // console.log("Do check");
   }
 
   signOut() {
@@ -67,5 +69,11 @@ export class HomePage implements OnInit, DoCheck {
       .catch(error => {
         console.log("Error getting location", error);
       });
+  }
+
+  setQuizType(isDuel: boolean) {
+    console.log(this.service.isDuel);
+    this.service.isDuel = isDuel;
+    console.log(this.service.isDuel);
   }
 }

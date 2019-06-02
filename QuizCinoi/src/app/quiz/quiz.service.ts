@@ -4,25 +4,33 @@ import { Question } from './questions/question.model';
 import { dataAPI } from './dataAPI.model';
 import { QuestionsPage } from './questions/questions.page';
 import * as $ from 'jquery';
-
+import { AngularFireAuth } from '@angular/fire/auth';
+import { DatabaseService } from '../database.service';
+import { User } from '../models/user';
 
 @Injectable({ providedIn: "root" })
 export class QuizService {
   category: string;
   categoryNumber: string;
-  difficulty: string;
-  answearType: string;
+  difficulty: string = "easy";
+  answearType: string = "multiple";
   url: string;
   dataVariable: dataAPI;
   questions: Question[];
   amountOfCorrectAnswers = 0;
   amountOfIncorrectAnswers = 0;
   amountOfQuestions: number;
+  isDuel: boolean = false;
+  myUser: User;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient,
+    public afAuth: AngularFireAuth,
+    public database: DatabaseService
+    ) { }
 
   getCategory(category: string) {
     this.category = category;
+    console.log(this.isDuel)
   }
 
   getDifficulty(difficulty: string) {
@@ -36,13 +44,14 @@ export class QuizService {
   }
 
   buildUrl() {
-    if (this.difficulty === undefined || this.difficulty === null) {
-      this.difficulty = "easy";
-    }
+    // do not needed anymore because of default value
+    // if (this.difficulty === undefined || this.difficulty === null) {
+    //   this.difficulty = "easy";
+    // }
 
-    if (this.answearType === undefined || this.answearType === null) {
-      this.answearType = "multiple";
-    }
+    // if (this.answearType === undefined || this.answearType === null) {
+    //   this.answearType = "multiple";
+    // }
 
     switch (this.category) {
       case 'Computers': {
@@ -106,6 +115,10 @@ export class QuizService {
       }
     }
     this.amountOfQuestions = this.questions.length;
+
+    if(this.isDuel){
+      this.saveAnswersToDatabase();
+    }
   }
 
   shuffleAnswers(array) {
@@ -138,5 +151,23 @@ export class QuizService {
         answerItem = this.removeHTMLentities(answerItem);
       }
     }
+  }
+
+  saveAnswersToDatabase(){
+    if (this.afAuth.auth.currentUser) {
+      this.myUser = {
+        uid: this.afAuth.auth.currentUser.uid,
+        resultsDuel: {
+          opponentNick: 'FakeNick',
+          result: 'waiting',
+          stats: {
+            questions: this.amountOfQuestions,
+            correct: this.amountOfCorrectAnswers,
+            wrong: this.amountOfIncorrectAnswers
+          }
+        }
+      };
+    }
+    this.database.setUser(this.myUser);
   }
 }

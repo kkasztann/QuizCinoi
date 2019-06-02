@@ -14,14 +14,14 @@ import { QuizService } from '../quiz/quiz.service';
   styleUrls: ["home.page.scss"]
 })
 export class HomePage implements OnInit, DoCheck {
-  myUser: User = {
-    uid: "noUID",
-    points: 0,
-    location: {
-      latitude: 0,
-      longitude: 0
-    }
-  };
+  // myUser: User = {
+  //   uid: "noUID",
+  //   points: 0,
+  //   location: {
+  //     latitude: 0,
+  //     longitude: 0
+  //   }
+  // };
 
   constructor(
     private router: Router,
@@ -35,7 +35,7 @@ export class HomePage implements OnInit, DoCheck {
     console.log("START");
 
     if (this.afAuth.auth.currentUser) {
-      this.myUser = {
+      this.service.myUser = {
         uid: this.afAuth.auth.currentUser.uid,
         points: 0,
         location: {
@@ -62,10 +62,10 @@ export class HomePage implements OnInit, DoCheck {
       .getCurrentPosition()
       .then(resp => {
         console.log(resp.coords.latitude);
-        this.myUser.location.latitude = resp.coords.latitude;
+        this.service.myUser.location.latitude = resp.coords.latitude;
         console.log(resp.coords.longitude);
-        this.myUser.location.longitude = resp.coords.longitude;
-      }).then (() => {this.database.setUser(this.myUser); })
+        this.service.myUser.location.longitude = resp.coords.longitude;
+      }).then (() => {this.database.setUser(this.service.myUser); })
       .catch(error => {
         console.log("Error getting location", error);
       });

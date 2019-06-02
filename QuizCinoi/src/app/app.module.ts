@@ -11,7 +11,7 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { FirebaseUIModule, firebase, firebaseui } from "firebaseui-angular";
-
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from 'src/environments/environment';
@@ -36,21 +36,24 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations:
+    [AppComponent],
+    entryComponents: [],
+
   imports: [
-  BrowserModule,
-  IonicModule.forRoot(),
-  AppRoutingModule,
-  AngularFireModule.initializeApp(environment.firebase),
-  AngularFireAuthModule,
-  HttpClientModule,
-  FirebaseUIModule.forRoot(firebaseUiAuthConfig)],
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    HttpClientModule,
+    AngularFirestoreModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig)],
   
   providers: [
-    StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+      StatusBar,
+      SplashScreen,
+      { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })

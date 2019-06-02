@@ -42,7 +42,6 @@ export class HomePage implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    console.log("TEST")
     this.database.setUser(this.myUser);
   }
 

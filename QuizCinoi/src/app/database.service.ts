@@ -10,10 +10,11 @@ export class DatabaseService {
 
   setUser(user: User) {
     this.db
-      .collection("users").doc(user.uid)
+      .collection("users")
+      .doc(user.uid)
       .set(user)
-      .then(function(docRef) {
-        // console.log("Document written with ID: ", docRef.id);
+      .then(function() {
+        console.log("DB - it's OK");
       })
       .catch(function(error) {
         console.error("Error adding document: ", error);

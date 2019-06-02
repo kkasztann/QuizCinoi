@@ -6,9 +6,7 @@ import { User } from "./models/user";
   providedIn: "root"
 })
 export class DatabaseService {
-
-  constructor(public db: AngularFirestore) {
-  }
+  constructor(public db: AngularFirestore) {}
 
   setUser(user: User) {
     this.db
@@ -24,11 +22,14 @@ export class DatabaseService {
   }
 
   getAllUsers() {
-    this.db.collection("users").get().then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
+    this.db
+      .collection("users")
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
           // doc.data() is never undefined for query doc snapshots
           console.log(doc.id, " => ", doc.data());
+        });
       });
-  });
   }
 }

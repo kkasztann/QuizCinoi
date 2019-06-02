@@ -62,7 +62,7 @@ export class HomePage implements OnInit, DoCheck {
         console.log(resp.coords.latitude);
         this.myUser.location.latitude = resp.coords.latitude;
         console.log(resp.coords.longitude);
-        this.myUser.location.latitude = resp.coords.longitude;
+        this.myUser.location.longitude = resp.coords.longitude;
       }).then (() => {this.database.setUser(this.myUser); })
       .catch(error => {
         console.log("Error getting location", error);

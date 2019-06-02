@@ -22,4 +22,13 @@ export class DatabaseService {
         console.error("Error adding document: ", error);
       });
   }
+
+  getAllUsers() {
+    this.db.collection("users").get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+      });
+  });
+  }
 }

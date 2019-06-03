@@ -21,7 +21,14 @@ export class QuizService {
   amountOfIncorrectAnswers = 0;
   amountOfQuestions: number;
   isDuel: boolean = false;
-  myUser: User;
+  myUser: User = {
+    uid: "noUID",
+    points: 0,
+    location: {
+      latitude: 0,
+      longitude: 0
+    }
+  };
 
   constructor(private _http: HttpClient,
     public afAuth: AngularFireAuth,
@@ -119,6 +126,9 @@ export class QuizService {
     if(this.isDuel){
       this.saveAnswersToDatabase();
     }
+    this.amountOfQuestions = 0;
+    this.amountOfCorrectAnswers = 0;
+    this.amountOfIncorrectAnswers = 0;
   }
 
   shuffleAnswers(array) {
@@ -168,6 +178,6 @@ export class QuizService {
         }
       };
     }
-    this.database.setUser(this.myUser);
+    this.database.updateUser(this.myUser);
   }
 }

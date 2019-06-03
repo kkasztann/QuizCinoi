@@ -35,7 +35,7 @@ export class DatabaseService {
       .catch(err => {
         console.log("Error getting documents", err);
       });
-
+  }
   updateUser(user: User) {
     this.db
       .collection("users")

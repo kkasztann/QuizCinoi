@@ -21,6 +21,8 @@ export class OpponentPage implements OnInit {
   myLat = 0;
   myLong = 0;
   allDistans = [];
+  opponent: User;
+  drawed = false;
 
   ngOnInit() {
     this.database.getAllUsers(this.allUsers);
@@ -30,7 +32,10 @@ export class OpponentPage implements OnInit {
   drawOpponent() {
     console.log("Losowanie");
     console.log(this.allUsers);
-    this.compareLocation(this.allUsers);
+    this.opponent = this.compareLocation(this.allUsers);
+    console.log("Wylosowano");
+    console.log(this.opponent);
+    this.drawed = true;
   }
 
   defineLocation() {
@@ -76,7 +81,6 @@ export class OpponentPage implements OnInit {
     });
     console.log(this.allDistans);
 
-    var num: number = 5;
     var i: number;
     var minL = this.allDistans[0];
     var minU = this.allUsers[0];
@@ -89,5 +93,6 @@ export class OpponentPage implements OnInit {
     }
     console.log(minL);
     console.log(minU);
+    return minU;
   }
 }

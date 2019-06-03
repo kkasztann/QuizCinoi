@@ -13,15 +13,15 @@
               src="https://www.idyllwildarts.org/wp-content/uploads/2016/09/blank-profile-picture.jpg">
           </ion-avatar>
           <ion-card-content class="ion-text-center">
-            <b>Nick</b><br>
-            <b>Points: 0</b><br>
+            <b *ngIf="opponent">Nick: {{opponent.uid}}</b><br>
+            <b *ngIf="opponent">Points:{{opponent.points}}</b><br>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12" class="ion-text-center">
-        <ion-button class="btn" fill="outline" [routerLink]="['/categories']">Begin duel</ion-button>
+        <ion-button *ngIf="drawed" class="btn" fill="outline" [routerLink]="['/categories']">Begin duel</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>

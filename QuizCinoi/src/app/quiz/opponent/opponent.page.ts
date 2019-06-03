@@ -20,6 +20,7 @@ export class OpponentPage implements OnInit {
   allUsers = [];
   myLat = 0;
   myLong = 0;
+  allDistans = [];
 
   ngOnInit() {
     this.database.getAllUsers(this.allUsers);
@@ -28,12 +29,9 @@ export class OpponentPage implements OnInit {
 
   drawOpponent() {
     console.log("Losowanie");
-
-    // setTimeout(() => {
-    //   console.log(this.allUsers);
-    // }, 3000);
+    console.log(this.allUsers);
+    this.compareLocation(this.allUsers);
   }
-  compareLocation() {}
 
   defineLocation() {
     this.geoloc
@@ -61,5 +59,35 @@ export class OpponentPage implements OnInit {
       (c(lat2 * p) * c(lat1 * p) * (1 - c((long1 - long2) * p))) / 2;
     let dis = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
     return dis;
+  }
+
+  compareLocation(allUsers) {
+    console.log("Compare TIME");
+    console.log(allUsers);
+    allUsers.forEach(user => {
+      this.allDistans.push(
+        this.calculateDistance(
+          user.location.latitude,
+          this.myLat,
+          user.location.longitude,
+          this.myLong
+        )
+      );
+    });
+    console.log(this.allDistans);
+
+    var num: number = 5;
+    var i: number;
+    var minL = this.allDistans[0];
+    var minU = this.allUsers[0];
+
+    for (i = 1; i < this.allDistans.length; i++) {
+      if (this.allDistans[i] < minL && this.allDistans[i] != 0) {
+        minL = this.allDistans[i];
+        minU = this.allUsers[i];
+      }
+    }
+    console.log(minL);
+    console.log(minU);
   }
 }

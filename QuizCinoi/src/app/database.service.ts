@@ -21,7 +21,7 @@ export class DatabaseService {
       });
   }
 
-  getAllUsers(allUsers: User[]) {
+  getAllUsers(allUsers: any[]) {
     this.db
       .collection("users")
       .get()
@@ -29,7 +29,7 @@ export class DatabaseService {
       .then(snapshot => {
         snapshot.forEach(doc => {
           allUsers.push(doc.data());
-          console.log(doc.id, "=>", doc.data());
+          // console.log(doc.id, "=>", doc.data());
         });
       })
       .catch(err => {

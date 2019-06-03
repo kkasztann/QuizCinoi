@@ -21,6 +21,19 @@ export class DatabaseService {
       });
   }
 
+  updateUser(user: User) {
+    this.db
+      .collection("users")
+      .doc(user.uid)
+      .update(user)
+      .then(function() {
+        console.log("DB - it's OK");
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+  }
+
   getAllUsers() {
     // this.db
     //   .collection("users")

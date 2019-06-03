@@ -45,4 +45,26 @@ export class DatabaseService {
     //     });
     //   });
   }
+
+  getUsersToRanking(arrayOfUsers) {
+    if (arrayOfUsers.length !== 0) {
+      arrayOfUsers = [];
+    }
+    this.db
+      .collection("users")
+      .get()
+      .toPromise()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          arrayOfUsers.push(doc.data());
+        });
+        arrayOfUsers.sort((a, b) =>
+          a.points > b.points ? -1 : b.points > a.points ? 1 : 0
+        );
+        console.log("koniec");
+        console.log(arrayOfUsers);
+      });
+  }
 }

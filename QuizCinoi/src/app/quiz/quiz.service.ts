@@ -177,12 +177,13 @@ export class QuizService {
   }
 
   saveAnswersToDatabase() {
+    console.log(this.opponent);
     if (this.afAuth.auth.currentUser) {
       this.myUser = {
         uid: this.afAuth.auth.currentUser.uid,
         resultsDuel: {
-          opponentNick: this.opponent.resultsDuel.opponentNick,
-          result: this.opponent.resultsDuel.result,
+          opponentNick: this.opponent.uid,
+          result: "waiting",
           stats: {
             questions: this.amountOfQuestions,
             correct: this.amountOfCorrectAnswers,

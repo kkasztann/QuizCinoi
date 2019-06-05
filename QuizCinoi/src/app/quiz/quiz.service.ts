@@ -137,9 +137,6 @@ export class QuizService {
     if (this.isDuel) {
       this.saveAnswersToDatabase();
     }
-    this.amountOfQuestions = 0;
-    this.amountOfCorrectAnswers = 0;
-    this.amountOfIncorrectAnswers = 0;
   }
 
   shuffleAnswers(array) {
@@ -195,5 +192,11 @@ export class QuizService {
       };
     }
     this.database.updateUser(this.myUser);
+  }
+
+  clearAnswers() {
+    this.amountOfQuestions = 0;
+    this.amountOfCorrectAnswers = 0;
+    this.amountOfIncorrectAnswers = 0;
   }
 }

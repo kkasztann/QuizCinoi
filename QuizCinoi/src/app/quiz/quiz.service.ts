@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
-import { Question } from './questions/question.model';
-import { dataAPI } from './dataAPI.model';
-import { QuestionsPage } from './questions/questions.page';
-import * as $ from 'jquery';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { DatabaseService } from '../database.service';
-import { User } from '../models/user';
+import { HttpClient } from "@angular/common/http";
+import { Question } from "./questions/question.model";
+import { dataAPI } from "./dataAPI.model";
+import { QuestionsPage } from "./questions/questions.page";
+import * as $ from "jquery";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { DatabaseService } from "../database.service";
+import { User } from "../models/user";
 
 @Injectable({ providedIn: "root" })
 export class QuizService {
@@ -29,15 +29,17 @@ export class QuizService {
       longitude: 0
     }
   };
+  opponent: User;
 
-  constructor(private _http: HttpClient,
+  constructor(
+    private _http: HttpClient,
     public afAuth: AngularFireAuth,
     public database: DatabaseService
-    ) { }
+  ) {}
 
   getCategory(category: string) {
     this.category = category;
-    console.log(this.isDuel)
+    console.log(this.isDuel);
   }
 
   getDifficulty(difficulty: string) {
@@ -61,40 +63,49 @@ export class QuizService {
     // }
 
     switch (this.category) {
-      case 'Computers': {
-        this.categoryNumber = '18';
+      case "Computers": {
+        this.categoryNumber = "18";
         break;
       }
-      case 'General': {
-        this.categoryNumber = '9';
+      case "General": {
+        this.categoryNumber = "9";
         break;
       }
-      case 'Nature': {
-        this.categoryNumber = '17';
+      case "Nature": {
+        this.categoryNumber = "17";
         break;
       }
-      case 'History': {
-        this.categoryNumber = '23';
+      case "History": {
+        this.categoryNumber = "23";
         break;
       }
       default: {
-        this.categoryNumber = '9';
+        this.categoryNumber = "9";
         break;
       }
     }
 
-    console.log(`https://opentdb.com/api.php?amount=5&category=${this.categoryNumber}&difficulty=${this.difficulty}&type=${this.answearType}`)
-    return `https://opentdb.com/api.php?amount=5&category=${this.categoryNumber}&difficulty=${this.difficulty}&type=${this.answearType}`;
+    console.log(
+      `https://opentdb.com/api.php?amount=5&category=${
+        this.categoryNumber
+      }&difficulty=${this.difficulty}&type=${this.answearType}`
+    );
+    return `https://opentdb.com/api.php?amount=5&category=${
+      this.categoryNumber
+    }&difficulty=${this.difficulty}&type=${this.answearType}`;
   }
 
   getQuestions() {
-    this._http.get<dataAPI>(this.buildUrl()).subscribe((data) => {
+    this._http.get<dataAPI>(this.buildUrl()).subscribe(data => {
       this.dataVariable = data;
       this.questions = this.dataVariable.results;
       console.log(this.questions);
       this.clearData();
       for (let item of this.questions) {
-        item.allAnswers = this.shuffleAnswers([...item.incorrect_answers, item.correct_answer]);
+        item.allAnswers = this.shuffleAnswers([
+          ...item.incorrect_answers,
+          item.correct_answer
+        ]);
       }
       console.log(this.questions);
     });
@@ -123,7 +134,7 @@ export class QuizService {
     }
     this.amountOfQuestions = this.questions.length;
 
-    if(this.isDuel){
+    if (this.isDuel) {
       this.saveAnswersToDatabase();
     }
     this.amountOfQuestions = 0;
@@ -132,11 +143,12 @@ export class QuizService {
   }
 
   shuffleAnswers(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
@@ -150,26 +162,30 @@ export class QuizService {
   }
 
   removeHTMLentities(toEncode) {
-    return $("<div/>").html(toEncode).text();
+    return $("<div/>")
+      .html(toEncode)
+      .text();
   }
 
   clearData() {
     for (let questionItem of this.questions) {
       questionItem.question = this.removeHTMLentities(questionItem.question);
-      questionItem.correct_answer = this.removeHTMLentities(questionItem.correct_answer);
+      questionItem.correct_answer = this.removeHTMLentities(
+        questionItem.correct_answer
+      );
       for (let answerItem of questionItem.incorrect_answers) {
         answerItem = this.removeHTMLentities(answerItem);
       }
     }
   }
 
-  saveAnswersToDatabase(){
+  saveAnswersToDatabase() {
     if (this.afAuth.auth.currentUser) {
       this.myUser = {
         uid: this.afAuth.auth.currentUser.uid,
         resultsDuel: {
-          opponentNick: 'FakeNick',
-          result: 'waiting',
+          opponentNick: this.opponent.resultsDuel.opponentNick,
+          result: this.opponent.resultsDuel.result,
           stats: {
             questions: this.amountOfQuestions,
             correct: this.amountOfCorrectAnswers,

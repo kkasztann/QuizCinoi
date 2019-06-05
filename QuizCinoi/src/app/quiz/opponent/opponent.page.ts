@@ -3,6 +3,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { DatabaseService } from "src/app/database.service";
 import { User } from "firebase";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
+import { QuizService } from "../quiz.service";
 
 @Component({
   selector: "app-opponent",
@@ -13,7 +14,8 @@ export class OpponentPage implements OnInit {
   constructor(
     public afAuth: AngularFireAuth,
     public database: DatabaseService,
-    private geoloc: Geolocation
+    private geoloc: Geolocation,
+    public service: QuizService
   ) {
     console.log(this.allUsers);
   }
@@ -21,7 +23,6 @@ export class OpponentPage implements OnInit {
   myLat = 0;
   myLong = 0;
   allDistans = [];
-  opponent: User;
   drawed = false;
 
   ngOnInit() {
@@ -32,9 +33,9 @@ export class OpponentPage implements OnInit {
   drawOpponent() {
     console.log("Losowanie");
     console.log(this.allUsers);
-    this.opponent = this.compareLocation(this.allUsers);
+    this.service.opponent = this.compareLocation(this.allUsers);
     console.log("Wylosowano");
-    console.log(this.opponent);
+    console.log(this.service.opponent);
     this.drawed = true;
   }
 

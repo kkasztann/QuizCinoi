@@ -22,7 +22,9 @@ export class QuizService {
   amountOfQuestions: number;
   isDuel: boolean = false;
   myUser: User = {
-    uid: "noUID",
+    uid: this.afAuth.auth.currentUser.uid,
+    name: this.afAuth.auth.currentUser.displayName,
+    avatarURL: this.afAuth.auth.currentUser.photoURL,
     points: 0,
     location: {
       latitude: 0,
@@ -181,9 +183,12 @@ export class QuizService {
     if (this.afAuth.auth.currentUser) {
       this.myUser = {
         uid: this.afAuth.auth.currentUser.uid,
+        name: this.afAuth.auth.currentUser.displayName,
+        avatarURL: this.afAuth.auth.currentUser.photoURL,
         points: this.database.pointsOfCurrentUser + this.amountOfCorrectAnswers,
         resultsDuel: {
-          opponentNick: this.opponent.uid,
+          opponentNick: this.opponent.name,
+          opponentAvatar: this.opponent.avatarURL,
           result: "waiting",
           stats: {
             questions: this.amountOfQuestions,

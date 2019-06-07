@@ -1,5 +1,7 @@
 export interface User {
   uid: string;
+  name: string;
+  avatarURL: string;
   location?: Location;
   points?: number;
   resultsDuel?: ResultDuel;
@@ -11,6 +13,7 @@ export interface Location {
 }
 export interface ResultDuel {
   opponentNick: string;
+  opponentAvatar: string;
   result: string;
   stats: Stats;
 }

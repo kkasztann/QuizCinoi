@@ -37,6 +37,8 @@ export class HomePage implements OnInit, DoCheck {
     if (this.afAuth.auth.currentUser) {
       this.service.myUser = {
         uid: this.afAuth.auth.currentUser.uid,
+        name: this.afAuth.auth.currentUser.displayName,
+        avatarURL: this.afAuth.auth.currentUser.photoURL,
         points: 0,
         location: {
           latitude: 11,

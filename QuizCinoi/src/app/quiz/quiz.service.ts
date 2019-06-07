@@ -185,6 +185,7 @@ export class QuizService {
         uid: this.afAuth.auth.currentUser.uid,
         name: this.afAuth.auth.currentUser.displayName,
         avatarURL: this.afAuth.auth.currentUser.photoURL,
+        points: this.database.pointsOfCurrentUser + this.amountOfCorrectAnswers,
         resultsDuel: {
           opponentNick: this.opponent.name,
           opponentAvatar: this.opponent.avatarURL,

@@ -6,7 +6,7 @@ import { DatabaseService } from "../database.service";
 import { User } from "../models/user";
 import { Plugins, Capacitor } from "@capacitor/core";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
-import { QuizService } from '../quiz/quiz.service';
+import { QuizService } from "../quiz/quiz.service";
 
 @Component({
   selector: "app-home",
@@ -67,7 +67,10 @@ export class HomePage implements OnInit, DoCheck {
         this.service.myUser.location.latitude = resp.coords.latitude;
         console.log(resp.coords.longitude);
         this.service.myUser.location.longitude = resp.coords.longitude;
-      }).then (() => {this.database.setUser(this.service.myUser); })
+      })
+      .then(() => {
+        this.database.setUser(this.service.myUser);
+      })
       .catch(error => {
         console.log("Error getting location", error);
       });
@@ -77,5 +80,6 @@ export class HomePage implements OnInit, DoCheck {
     console.log(this.service.isDuel);
     this.service.isDuel = isDuel;
     console.log(this.service.isDuel);
+    this.database.getUserPoints();
   }
 }

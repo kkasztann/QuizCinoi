@@ -2,12 +2,20 @@ import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { User } from "./models/user";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
+import { element } from "@angular/core/src/render3";
+import { AngularFireAuth } from "@angular/fire/auth";
 @Injectable({
   providedIn: "root"
 })
 export class DatabaseService {
-  constructor(public db: AngularFirestore, private geoloc: Geolocation) {}
-
+  constructor(
+    public db: AngularFirestore,
+    private geoloc: Geolocation,
+    public afAuth: AngularFireAuth
+  ) {}
+  arrayOfUsers = [];
+  currentUser: User;
+  pointsOfCurrentUser: number;
   setUser(user: User) {
     this.db
       .collection("users")
@@ -69,5 +77,12 @@ export class DatabaseService {
         console.log("koniec");
         console.log(arrayOfUsers);
       });
+  }
+
+  getUserPoints() {
+    this.currentUser = this.arrayOfUsers.find(
+      element => element.uid === this.afAuth.auth.currentUser.uid
+    );
+    this.pointsOfCurrentUser = this.currentUser.points;
   }
 }

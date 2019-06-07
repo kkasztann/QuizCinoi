@@ -7,15 +7,14 @@ import { DatabaseService } from "../database.service";
   styleUrls: ["./ranking.page.scss"]
 })
 export class RankingPage implements OnInit {
-  arrayOfUsers = [];
   constructor(public database: DatabaseService) {}
 
   ngOnInit() {
-    this.database.getUsersToRanking(this.arrayOfUsers);
+    this.database.getUsersToRanking(this.database.arrayOfUsers);
   }
 
   getCurrent() {
-    this.database.getUsersToRanking(this.arrayOfUsers);
-    console.log(this.arrayOfUsers);
+    this.database.getUsersToRanking(this.database.arrayOfUsers);
+    console.log(this.database.arrayOfUsers);
   }
 }

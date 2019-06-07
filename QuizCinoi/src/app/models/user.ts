@@ -1,5 +1,7 @@
 export interface User {
   uid: string;
+  name: string;
+  avatarURL: string;
   location?: Location;
   points?: number;
   resultsDuel?: ResultDuel;

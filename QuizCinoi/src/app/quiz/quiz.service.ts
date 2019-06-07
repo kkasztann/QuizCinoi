@@ -181,6 +181,7 @@ export class QuizService {
     if (this.afAuth.auth.currentUser) {
       this.myUser = {
         uid: this.afAuth.auth.currentUser.uid,
+        points: this.database.pointsOfCurrentUser + this.amountOfCorrectAnswers,
         resultsDuel: {
           opponentNick: this.opponent.uid,
           result: "waiting",

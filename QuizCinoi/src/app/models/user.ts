@@ -13,6 +13,7 @@ export interface Location {
 }
 export interface ResultDuel {
   opponentNick: string;
+  opponentAvatar: string;
   result: string;
   stats: Stats;
 }

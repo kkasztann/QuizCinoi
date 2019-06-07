@@ -186,7 +186,8 @@ export class QuizService {
         name: this.afAuth.auth.currentUser.displayName,
         avatarURL: this.afAuth.auth.currentUser.photoURL,
         resultsDuel: {
-          opponentNick: this.opponent.uid,
+          opponentNick: this.opponent.name,
+          opponentAvatar: this.opponent.avatarURL,
           result: "waiting",
           stats: {
             questions: this.amountOfQuestions,

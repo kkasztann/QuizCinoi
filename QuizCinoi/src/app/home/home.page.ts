@@ -39,6 +39,7 @@ export class HomePage implements OnInit, DoCheck {
         uid: this.afAuth.auth.currentUser.uid,
         name: this.afAuth.auth.currentUser.displayName,
         avatarURL: this.afAuth.auth.currentUser.photoURL,
+        points: 0,
         location: {
           latitude: 11,
           longitude: 22

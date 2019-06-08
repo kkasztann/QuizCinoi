@@ -25,6 +25,7 @@ export class QuizService {
     uid: this.afAuth.auth.currentUser.uid,
     name: this.afAuth.auth.currentUser.displayName,
     avatarURL: this.afAuth.auth.currentUser.photoURL,
+    points: 0,
     location: {
       latitude: 0,
       longitude: 0
@@ -179,6 +180,9 @@ export class QuizService {
 
   saveAnswersToDatabase() {
     console.log(this.opponent);
+    console.log("CHUUUUUUUUUUUUUUUUUUUUUUUUUUUJEEEEE");
+    console.log(`PointsCurrent`+this.database.pointsOfCurrentUser);
+    console.log(`Correct`+this.amountOfCorrectAnswers);
     if (this.afAuth.auth.currentUser) {
       this.myUser = {
         uid: this.afAuth.auth.currentUser.uid,

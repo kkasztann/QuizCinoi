@@ -15,7 +15,7 @@ export class DatabaseService {
   ) {}
   arrayOfUsers = [];
   currentUser: User;
-  pointsOfCurrentUser: number;
+  pointsOfCurrentUser = 0;
   setUser(user: User) {
     this.db
       .collection("users")
@@ -79,6 +79,7 @@ export class DatabaseService {
       });
   }
 
+
   getUserPoints(
     arrayOfUsers,
     currentUser,
@@ -88,6 +89,7 @@ export class DatabaseService {
     if (arrayOfUsers.length !== 0) {
       arrayOfUsers = [];
     }
+    var self = this;
     this.db
       .collection("users")
       .get()
@@ -108,8 +110,10 @@ export class DatabaseService {
         console.log(currentUserUid);
         console.log(currentUser);
         pointsOfCurrentUser = currentUser.points;
+        self.pointsOfCurrentUser = pointsOfCurrentUser;
         console.log(pointsOfCurrentUser);
         console.log("getUserPoints");
       });
   }
+
 }

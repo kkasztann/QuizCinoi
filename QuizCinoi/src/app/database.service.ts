@@ -79,10 +79,37 @@ export class DatabaseService {
       });
   }
 
-  getUserPoints() {
-    this.currentUser = this.arrayOfUsers.find(
-      element => element.uid === this.afAuth.auth.currentUser.uid
-    );
-    this.pointsOfCurrentUser = this.currentUser.points;
+  getUserPoints(
+    arrayOfUsers,
+    currentUser,
+    currentUserUid,
+    pointsOfCurrentUser
+  ) {
+    if (arrayOfUsers.length !== 0) {
+      arrayOfUsers = [];
+    }
+    this.db
+      .collection("users")
+      .get()
+      .toPromise()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          arrayOfUsers.push(doc.data());
+        });
+        console.log("koniec");
+        console.log(arrayOfUsers);
+        console.log("getUserPoints");
+        console.log(arrayOfUsers);
+        currentUser = arrayOfUsers.find(
+          element => element.uid === currentUserUid
+        );
+        console.log(currentUserUid);
+        console.log(currentUser);
+        pointsOfCurrentUser = currentUser.points;
+        console.log(pointsOfCurrentUser);
+        console.log("getUserPoints");
+      });
   }
 }

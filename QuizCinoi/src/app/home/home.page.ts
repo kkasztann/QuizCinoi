@@ -39,7 +39,6 @@ export class HomePage implements OnInit, DoCheck {
         uid: this.afAuth.auth.currentUser.uid,
         name: this.afAuth.auth.currentUser.displayName,
         avatarURL: this.afAuth.auth.currentUser.photoURL,
-        points: 0,
         location: {
           latitude: 11,
           longitude: 22
@@ -80,6 +79,11 @@ export class HomePage implements OnInit, DoCheck {
     console.log(this.service.isDuel);
     this.service.isDuel = isDuel;
     console.log(this.service.isDuel);
-    this.database.getUserPoints();
+    this.database.getUserPoints(
+      this.database.arrayOfUsers,
+      this.database.currentUser,
+      this.afAuth.auth.currentUser.uid,
+      this.database.pointsOfCurrentUser
+    );
   }
 }

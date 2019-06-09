@@ -17,8 +17,8 @@ Whats more fun than nice evening with your loved ones and some quizzes.*
 *Create your account* | ![alt text](Prototyp/login_app.PNG "login") | *Select category* | ![alt text](Prototyp/categories_app.PNG "categories")
 *Select type and difficulty* | ![alt text](Prototyp/form_app.PNG "form") | *Start a quiz* | ![alt text](Prototyp/quiz_app.PNG "quiz")
 *Check results of quiz* | ![alt text](Prototyp/result_app.PNG "result") | *Check correct answers* | ![alt text](Prototyp/result2_app.PNG "correct answers")
-*Check ranking* | ![alt text](Prototyp/ranking_app.PNG "ranking") | *Check results of duels* | ![alt text](Prototyp/duel_app.PNG "duel")
-*Choose your opponent* | ![alt text](Prototyp/available_app.PNG "available duel") | *Accept your opponent* | ![alt text](Prototyp/opponent_app.PNG "opponent")
+*Check ranking* | ![alt text](Prototyp/ranking_app.PNG "ranking") 
+
 
 ## Use Case Diagram
 ![alt text](Prototyp/UseCaseApp.png "UseCase")
